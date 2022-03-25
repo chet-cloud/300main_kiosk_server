@@ -10,6 +10,8 @@
   "author": "cchen@artisreit.com",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "multistream": "^4.1.0",
+    "stream-slice": "^0.1.2"
   }
 }

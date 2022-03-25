@@ -53,27 +53,41 @@
 </head>
 
 <body>
-    <video autoplay muted loop id="myVideo"></video>
+    <video autoplay muted id="myVideo" style="display: block;"></video>
+    <video autoplay muted id="myVideo1" style="display: none;"></video>
     <script>
-        function Player(element,videos){
-            var videoSource = [...videos];
+        function Player(element, videos) {
+            let videoSource = [...videos];
+            let videoCount = videoSource.length;
+            let i = 0
             element.setAttribute("src", videoSource[0]);
             function videoPlay(videoNum) {
                 element.setAttribute("src", videoSource[videoNum]);
                 element.load();
                 element.play();
             }
-            element.addEventListener('ended', ()=>{
+            element.onended = (e) => {
                 i++;
-                if (i == (videoCount - 1)) {
+                if (i === videoCount) {
                     i = 0;
                     videoPlay(i);
-                }else {
+                } else {
                     videoPlay(i);
                 }
-            }, false);
+            };
         }
-        Player(document.getElementById("myVideo"),['http://localhost:8080/2.mp4','http://localhost:8080/1.mp4'])
+        Player(document.querySelector('#myVideo'), ['http://localhost:8080/1.mp4', 'http://localhost:8080/2.mp4'])
+        Player(document.querySelector('#myVideo1'), ['http://localhost:8080/2.mp4', 'http://localhost:8080/1.mp4'])
+
+        function togle(){
+            if(document.querySelector('#myVideo').style.display === 'block'){
+                document.querySelector('#myVideo').style.display = 'none';
+                document.querySelector('#myVideo1').style.display = 'block';
+            }else{
+                document.querySelector('#myVideo').style.display = 'block';
+                document.querySelector('#myVideo1').style.display = 'none';
+            }
+        }
     </script>
 
 
