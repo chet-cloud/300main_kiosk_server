@@ -5,13 +5,17 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "chunks": "node src/chunks.js"
   },
+  "type": "module",
   "author": "cchen@artisreit.com",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3",
+    "files_as_stream": "^1.0.1",
+    "glob": "^7.2.0",
     "multistream": "^4.1.0",
+    "split-file": "^2.3.0",
     "stream-slice": "^0.1.2"
   }
 }

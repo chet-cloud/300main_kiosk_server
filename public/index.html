@@ -6,6 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="favicon.png">
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {})
+    </script>
     <title>300main_kiosk</title>
     <style>
         * {
@@ -53,44 +56,7 @@
 </head>
 
 <body>
-    <video autoplay muted id="myVideo" style="display: block;"></video>
-    <video autoplay muted id="myVideo1" style="display: none;"></video>
-    <script>
-        function Player(element, videos) {
-            let videoSource = [...videos];
-            let videoCount = videoSource.length;
-            let i = 0
-            element.setAttribute("src", videoSource[0]);
-            function videoPlay(videoNum) {
-                element.setAttribute("src", videoSource[videoNum]);
-                element.load();
-                element.play();
-            }
-            element.onended = (e) => {
-                i++;
-                if (i === videoCount) {
-                    i = 0;
-                    videoPlay(i);
-                } else {
-                    videoPlay(i);
-                }
-            };
-        }
-        Player(document.querySelector('#myVideo'), ['http://localhost:8080/1.mp4', 'http://localhost:8080/2.mp4'])
-        Player(document.querySelector('#myVideo1'), ['http://localhost:8080/2.mp4', 'http://localhost:8080/1.mp4'])
-
-        function togle(){
-            if(document.querySelector('#myVideo').style.display === 'block'){
-                document.querySelector('#myVideo').style.display = 'none';
-                document.querySelector('#myVideo1').style.display = 'block';
-            }else{
-                document.querySelector('#myVideo').style.display = 'block';
-                document.querySelector('#myVideo1').style.display = 'none';
-            }
-        }
-    </script>
-
-
+    <video autoplay muted loop id="myVideo" src="http://localhost:8080/video/mp4/2.mp4"></video>
     <!-- <div class="content">
         <h1>Heading</h1>
         <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu recteque expetendis
@@ -98,9 +64,6 @@
             molestiae, ad mutat oblique delicatissimi pro.</p>
         <button id="myBtn" onclick="myFunction()">Pause</button>
     </div> -->
-
-
-
 </body>
 
 </html>
