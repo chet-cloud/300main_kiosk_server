@@ -5,4 +5,6 @@
 
 
 pm2 start "node -- ./app.js"
+
+
 pm2 set pm2-auto-pull:interval 60000
